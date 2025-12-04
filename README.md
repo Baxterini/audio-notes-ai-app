@@ -22,4 +22,4 @@ Idealna, gdy chcesz szybko „zrzucić z głowy” pomysły, a potem łatwo do n
 
 ## Demo
 
-- 🌐 Wersja online: https://25wdrozenie-audio-app.streamlit.app/
+- 🌐 Wersja online: [audio-notes-ai-app.streamlit.app](https://audio-notes-ai-app.streamlit.app/)
