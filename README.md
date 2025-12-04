@@ -20,7 +20,7 @@ Idealna, gdy chcesz szybko „zrzucić z głowy” pomysły, a potem łatwo do n
 - Qdrant (wektorowe przechowywanie notatek)
 - `audiorecorder` do nagrywania audio w przeglądarce
 
-## Stramli Cloud
+## Stramlit Cloud
 
 - 🌐 Wersja online: [audio-notes-ai-app.streamlit.app](https://audio-notes-ai-app.streamlit.app/)
 
