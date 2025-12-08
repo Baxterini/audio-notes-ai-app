@@ -10,6 +10,14 @@ import time
 from pydub import AudioSegment
 from pydub.utils import which
 
+def get_secret(key: str):
+    """Bezpieczne pobieranie sekretów – nie sypie błędem lokalnie, gdy nie ma secrets.toml."""
+    try:
+        return st.secrets[key]
+    except Exception:
+        return None
+
+
 env = dotenv_values(".env")
 
 # Nadpisz wartości z secrets jeśli są dostępne (tylko na Streamlit Cloud)
@@ -34,7 +42,11 @@ AUDIO_TRANSCRIBE_MODEL = "whisper-1"
 QDRANT_COLLECTION_NAME = "notes"
 
 def get_openai_client():
-    return OpenAI(api_key=st.session_state["openai_api_key"])
+    api_key = get_secret("OPENAI_API_KEY") or st.session_state.get("openai_api_key")
+    if not api_key:
+        st.warning("Dodaj klucz OpenAI (w secrets na Cloud lub w polu poniżej).")
+        st.stop()
+    return OpenAI(api_key=api_key)
 
 def transcribe_audio(audio_bytes):
     openai_client = get_openai_client()
